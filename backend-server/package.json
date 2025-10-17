@@ -1,0 +1,25 @@
+{
+  "name": "emotion-classroom-backend",
+  "version": "1.0.0",
+  "description": "Backend server for Emotion-Aware Classroom - Real-time emotion data aggregation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "websocket",
+    "emotion",
+    "classroom",
+    "real-time"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.18.0",
+    "@google/generative-ai": "^0.21.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

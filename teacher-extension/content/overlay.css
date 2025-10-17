@@ -1,0 +1,194 @@
+/* Teacher overlay styles */
+
+.emotion-overlay {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 320px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  z-index: 999999;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.overlay-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 15px;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.overlay-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.session-badge {
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-icon {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.btn-icon:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.overlay-content {
+  padding: 15px;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-card.engaged {
+  background: linear-gradient(135deg, #c3f0c8 0%, #6dd47e 100%);
+}
+
+.stat-card.confused {
+  background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+}
+
+.stat-card.students {
+  background: linear-gradient(135deg, #a8e0ff 0%, #667eea 100%);
+  color: white;
+}
+
+.stat-card.cameras {
+  background: linear-gradient(135deg, #d4a5ff 0%, #9b59b6 100%);
+  color: white;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  opacity: 0.9;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.emotion-breakdown {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.emotion-bar {
+  display: grid;
+  grid-template-columns: 80px 1fr 40px;
+  align-items: center;
+  gap: 8px;
+}
+
+.emotion-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.progress-bar {
+  height: 20px;
+  background: #ecf0f1;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.5s ease;
+  border-radius: 10px;
+}
+
+.progress-fill.happy {
+  background: linear-gradient(90deg, #6dd47e, #3ad66e);
+}
+
+.progress-fill.neutral {
+  background: linear-gradient(90deg, #95a5a6, #7f8c8d);
+}
+
+.progress-fill.sad {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.emotion-percent {
+  font-size: 11px;
+  font-weight: 600;
+  color: #7f8c8d;
+  text-align: right;
+}
+
+.status-text {
+  margin-top: 15px;
+  padding: 10px;
+  background: #ecf0f1;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #34495e;
+}
+
+/* Animation for pulse effect */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
+  }
+}
+
+.emotion-overlay:hover {
+  animation: pulse-glow 2s infinite;
+}

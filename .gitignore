@@ -1,0 +1,32 @@
+# Chrome Extension Development
+
+# API Keys and Secrets
+*.key
+*.env
+*.env.local
+
+# Libraries (download separately)
+extension/libs/face-api.min.js
+
+# Face-api models (if downloaded locally)
+extension/models/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Distribution
+*.zip
+dist/
+
+# Node modules (if you add build tools later)
+node_modules/

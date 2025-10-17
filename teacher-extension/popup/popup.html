@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Dashboard</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <h1>📚 Teacher Dashboard</h1>
+      <p class="subtitle">Emotion-Aware Classroom</p>
+    </header>
+
+    <div class="popup-content">
+      <!-- Session Status -->
+      <section class="section" id="sessionSection">
+        <h3>🎓 Session Status</h3>
+        
+        <!-- Not Connected View -->
+        <div id="notConnectedView">
+          <div class="form-group">
+            <label for="serverUrl">Backend Server URL</label>
+            <input 
+              type="text" 
+              id="serverUrl" 
+              class="input-field"
+              placeholder="ws://localhost:3000"
+              value="ws://localhost:3000"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label>Meet Code (Auto-detected)</label>
+            <div class="meet-code-display" id="meetCodeDisplay">
+              <span id="meetCode">Detecting...</span>
+            </div>
+            <p class="hint">Join a Google Meet first</p>
+          </div>
+          
+          <button id="startSessionBtn" class="btn btn-primary full-width">
+            Start Session
+          </button>
+        </div>
+        
+        <!-- Connected View -->
+        <div id="connectedView" style="display: none;">
+          <div class="session-info">
+            <div class="info-row">
+              <span class="label">Meet Code:</span>
+              <span class="value session-id" id="displaySessionId">-</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Status:</span>
+              <span class="value status-badge active">Active</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Students Connected:</span>
+              <span class="value" id="studentsCount">0</span>
+            </div>
+          </div>
+          
+          <button id="endSessionBtn" class="btn btn-danger full-width">
+            End Session
+          </button>
+        </div>
+      </section>
+
+      <!-- AI Info Section -->
+      <section class="section">
+        <h3>🤖 AI Insights</h3>
+        <p class="hint">AI insights are powered by Gemini (configured on the backend server)</p>
+      </section>
+
+      <!-- Controls Section -->
+      <section class="section">
+        <h3>🎛️ Controls</h3>
+        <div class="controls">
+          <button id="startTranscriptionBtn" class="btn btn-success">
+            🎙️ Start Transcription
+          </button>
+          <button id="stopTranscriptionBtn" class="btn btn-danger" disabled>
+            ⏹️ Stop Transcription
+          </button>
+        </div>
+      </section>
+
+      <!-- Current Stats Section -->
+      <section class="section">
+        <h3>📊 Aggregated Classroom Stats</h3>
+        <div class="stats-grid">
+          <div class="stat-card stat-engaged">
+            <div class="stat-label">Engaged</div>
+            <div class="stat-value" id="statEngaged">-</div>
+          </div>
+          <div class="stat-card stat-confused">
+            <div class="stat-label">Confused</div>
+            <div class="stat-value" id="statConfused">-</div>
+          </div>
+          <div class="stat-card stat-students">
+            <div class="stat-label">Active Students</div>
+            <div class="stat-value" id="statStudents">-</div>
+          </div>
+        </div>
+        
+        <!-- Detailed Emotions -->
+        <div class="emotions-breakdown">
+          <h4 class="emotions-title">Emotion Breakdown</h4>
+          <div class="emotion-bar">
+            <span class="emotion-label">😊 Happy</span>
+            <div class="bar-bg">
+              <div class="bar-fill bar-happy" id="barHappy" style="width: 0%"></div>
+            </div>
+            <span class="emotion-percent" id="percentHappy">0%</span>
+          </div>
+          <div class="emotion-bar">
+            <span class="emotion-label">😐 Neutral</span>
+            <div class="bar-bg">
+              <div class="bar-fill bar-neutral" id="barNeutral" style="width: 0%"></div>
+            </div>
+            <span class="emotion-percent" id="percentNeutral">0%</span>
+          </div>
+          <div class="emotion-bar">
+            <span class="emotion-label">😢 Sad</span>
+            <div class="bar-bg">
+              <div class="bar-fill bar-sad" id="barSad" style="width: 0%"></div>
+            </div>
+            <span class="emotion-percent" id="percentSad">0%</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Insights Section -->
+      <section class="section">
+        <h3>🤖 AI Teaching Insights</h3>
+        <button id="getInsightsBtn" class="btn btn-primary full-width">
+          Generate Insights from Gemini
+        </button>
+        <div class="insights-container" id="insightsContainer">
+          <p class="placeholder">Click "Generate Insights" to get AI-powered feedback</p>
+        </div>
+      </section>
+
+      <!-- Transcript Section -->
+      <section class="section">
+        <h3>📝 Live Transcript</h3>
+        <div class="transcript-container" id="transcriptContainer">
+          <p class="placeholder">Start transcription to see your speech...</p>
+        </div>
+      </section>
+
+      <!-- Status -->
+      <div class="status" id="status"></div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
