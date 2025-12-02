@@ -1,4 +1,4 @@
-# 📚 Emotion-Aware Virtual Classroom
+# Emotion-Aware Virtual Classroom
 
 > **NEW: Dual-Extension Architecture** - Students and teachers use separate extensions with real-time backend aggregation.
 
